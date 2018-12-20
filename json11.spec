@@ -25,7 +25,8 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %prep
 %autosetup
 mkdir -p %{_target_platform}
-sed -i 's@lib/@%{_libdir}/@g' CMakeLists.txt
+sed -i 's@lib/@%{_lib}/@g' CMakeLists.txt
+sed -i 's@lib/@%{_lib}/@g' json11.pc.in
 echo "set_property(TARGET json11 PROPERTY SOVERSION 0)" >> CMakeLists.txt
 
 %build
