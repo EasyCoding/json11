@@ -6,7 +6,7 @@ Release: 1%{?dist}
 
 Summary: A tiny JSON library for C++11
 License: MIT
-URL: https://github.com/nlohmann/%{name}
+URL: https://github.com/dropbox/%{name}
 Source0: %{url}/archive/v%{version}.tar.gz
 
 BuildRequires: ninja-build
@@ -28,10 +28,12 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %autosetup
 mkdir -p %{_target_platform}
 sed -i 's@lib/@%{_libdir}/@g' CMakeLists.txt
+echo "set_property(TARGET json11 PROPERTY SOVERSION 0)" >> CMakeLists.txt
 
 %build
 pushd %{_target_platform}
     %cmake -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
     ..
 popd
 %ninja_build -C %{_target_platform}
@@ -39,9 +41,13 @@ popd
 %install
 %ninja_install -C %{_target_platform}
 
-%files devel
+%files
 %doc README.md
 %license LICENSE.txt
+%{_libdir}/lib%{name}.so.0
+
+%files devel
+%{_libdir}/lib%{name}.so
 %{_includedir}/%{name}.hpp
 %{_libdir}/pkgconfig/%{name}.pc
 
