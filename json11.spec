@@ -1,5 +1,3 @@
-%global debug_package   %{nil}
-
 Name: json11
 Version: 1.0.0
 Release: 1%{?dist}
