@@ -32,9 +32,15 @@ echo "set_property(TARGET json11 PROPERTY SOVERSION 0)" >> CMakeLists.txt
 pushd %{_target_platform}
     %cmake -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
+    -DJSON11_BUILD_TESTS=ON \
     ..
 popd
 %ninja_build -C %{_target_platform}
+
+%check
+pushd %{_target_platform}
+    ctest --output-on-failure
+popd
 
 %install
 %ninja_install -C %{_target_platform}
