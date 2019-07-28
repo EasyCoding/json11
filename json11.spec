@@ -1,6 +1,6 @@
 Name: json11
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 Summary: A tiny JSON library for C++11
 License: MIT
@@ -57,6 +57,9 @@ popd
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
