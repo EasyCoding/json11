@@ -2,7 +2,7 @@
 
 Name: json11
 Version: 1.0.0
-Release: 5%{?dist}
+Release: 6%{?dist}
 
 Summary: A tiny JSON library for C++11
 License: MIT
@@ -53,6 +53,9 @@ echo "set_property(TARGET json11 PROPERTY SOVERSION 0)" >> CMakeLists.txt
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Tue Jul 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.0-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
